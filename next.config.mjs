@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
+
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
   output: 'export',
-  basePath: '/Library_management',
+
+  // GitHub Pages needs this path.
+  // Local development will run at http://localhost:3000/
+  basePath: isProd ? '/Library_management' : '',
+
   images: {
     unoptimized: true,
   },
